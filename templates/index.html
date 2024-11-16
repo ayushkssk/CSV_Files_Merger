@@ -7,6 +7,28 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #80deea);
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            color: #4ca1af;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
@@ -31,10 +53,10 @@
                 <img style="max-width: 150px;" src="{{ url_for('static', filename='images/Screenshot4.png') }}" alt="Screenshot 4" class="screenshot" data-toggle="modal" data-target="#screenshotModal">
                 <div class="overlay">Click to Preview</div>
             </div>
-            <div class="screenshot-wrapper">
+            <!-- <div class="screenshot-wrapper">
                 <img style="max-width: 150px;" src="{{ url_for('static', filename='images/Screenshot5.png') }}" alt="Screenshot 5" class="screenshot" data-toggle="modal" data-target="#screenshotModal">
                 <div class="overlay">Click to Preview</div>
-            </div>
+            </div> -->
         </div>
 
         <form action="/" method="post" enctype="multipart/form-data" class="mt-4">
@@ -53,6 +75,95 @@
             <p>Developed by Ayush</p>
             <button id="theme-toggle" class="btn btn-secondary">Switch to Night Theme</button>
         </footer>
+    </div>
+
+    <!-- Documentation Section -->
+    <div class="container mt-5">
+        <h1>CSV Merger Project Documentation</h1>
+        <h2>Overview</h2>
+        <p>The CSV Merger is a web application that allows users to upload two CSV files, merge them based on specific columns, and download the result as an Excel file. The application features a user-friendly interface with a day/night theme toggle and image previews.</p>
+        
+        <h2>Features</h2>
+        <ul>
+            <li>Upload and merge two CSV files.</li>
+            <li>Download the merged result as an Excel file.</li>
+            <li>Day/Night theme toggle.</li>
+            <li>Image previews with keyboard navigation.</li>
+        </ul>
+
+        <h2>Technologies Used</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Bootstrap for styling</li>
+            <li>Font Awesome for icons</li>
+            <li>Python (Flask) for backend processing</li>
+            <li>Netlify for deployment</li>
+        </ul>
+
+        <h2>Setup and Installation</h2>
+        <h3>Prerequisites</h3>
+        <ul>
+            <li>Python 3.x</li>
+            <li>Git</li>
+            <li>A GitHub account</li>
+        </ul>
+
+        <h3>Installation Steps</h3>
+        <ol>
+            <li>Clone the Repository
+                <pre><code>git clone https://github.com/yourusername/csv-merger.git
+cd csv-merger</code></pre>
+            </li>
+            <li>Set Up a Virtual Environment
+                <pre><code>python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`</code></pre>
+            </li>
+            <li>Install Dependencies
+                <pre><code>pip install -r requirements.txt</code></pre>
+            </li>
+            <li>Run the Application
+                <pre><code>flask run</code></pre>
+            </li>
+            <li>Access the Application
+                <p>Open your browser and go to <a href="http://localhost:5000">http://localhost:5000</a>.</p>
+            </li>
+        </ol>
+
+        <h2>Deployment</h2>
+        <h3>Deploying on Netlify</h3>
+        <ol>
+            <li>Push Your Code to GitHub</li>
+            <li>Sign Up for Netlify</li>
+            <li>Create a New Site</li>
+            <li>Connect to GitHub</li>
+            <li>Select Your Repository</li>
+            <li>Configure Build Settings</li>
+            <li>Deploy</li>
+            <li>Access Your Live Site</li>
+        </ol>
+
+        <h2>Usage</h2>
+        <ol>
+            <li>Upload CSV Files</li>
+            <li>Merge and Download</li>
+            <li>Theme Toggle</li>
+            <li>Image Previews</li>
+        </ol>
+
+        <h2>Contributing</h2>
+        <ol>
+            <li>Fork the repository.</li>
+            <li>Create a new branch (`git checkout -b feature-branch`).</li>
+            <li>Make your changes and commit them (`git commit -m 'Add new feature'`).</li>
+            <li>Push to the branch (`git push origin feature-branch`).</li>
+            <li>Open a pull request.</li>
+        </ol>
+
+        <h2>License</h2>
+        <p>This project is licensed under the MIT License.</p>
+
+        <h2>Contact</h2>
+        <p>For questions or support, please contact [your-email@example.com].</p>
     </div>
 
     <!-- Single Modal for Image Previews -->
