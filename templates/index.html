@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Merger</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Upload CSV Files to Merge</h2>
+        <p class="text-center">This tool allows you to upload two CSV files, merge them based on specific columns, and download the result as an Excel file. Simply choose your files and click "Merge and Download".</p>
+        
+        <!-- Scrolling Screenshots -->
+        <div class="screenshot-container d-flex justify-content-center">
+            <div class="screenshot-wrapper">
+                <img style="max-width: 150px;" src="{{ url_for('static', filename='images/Screenshot1.png') }}" alt="Screenshot 1" class="screenshot" data-toggle="modal" data-target="#screenshotModal">
+                <div class="overlay">Click to Preview</div>
+            </div>
+            <div class="screenshot-wrapper">
+                <img style="max-width: 150px;" src="{{ url_for('static', filename='images/Screenshot2.png') }}" alt="Screenshot 2" class="screenshot" data-toggle="modal" data-target="#screenshotModal">
+                <div class="overlay">Click to Preview</div>
+            </div>
+            <div class="screenshot-wrapper">
+                <img style="max-width: 150px;" src="{{ url_for('static', filename='images/Screenshot3.png') }}" alt="Screenshot 3" class="screenshot" data-toggle="modal" data-target="#screenshotModal">
+                <div class="overlay">Click to Preview</div>
+            </div>
+            <div class="screenshot-wrapper">
+                <img style="max-width: 150px;" src="{{ url_for('static', filename='images/Screenshot4.png') }}" alt="Screenshot 4" class="screenshot" data-toggle="modal" data-target="#screenshotModal">
+                <div class="overlay">Click to Preview</div>
+            </div>
+            <div class="screenshot-wrapper">
+                <img style="max-width: 150px;" src="{{ url_for('static', filename='images/Screenshot5.png') }}" alt="Screenshot 5" class="screenshot" data-toggle="modal" data-target="#screenshotModal">
+                <div class="overlay">Click to Preview</div>
+            </div>
+        </div>
+
+        <form action="/" method="post" enctype="multipart/form-data" class="mt-4">
+            <div class="form-group">
+                <label for="file1">First CSV File</label>
+                <input type="file" class="form-control-file" id="file1" name="file1" required>
+            </div>
+            <div class="form-group">
+                <label for="file2">Second CSV File</label>
+                <input type="file" class="form-control-file" id="file2" name="file2" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Merge and Download</button>
+        </form>
+
+        <footer class="mt-5 text-center">
+            <p>Developed by Ayush</p>
+            <button id="theme-toggle" class="btn btn-secondary">Switch to Night Theme</button>
+        </footer>
+    </div>
+
+    <!-- Single Modal for Image Previews -->
+    <div class="modal fade" id="screenshotModal" tabindex="-1" role="dialog" aria-labelledby="screenshotModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="screenshotModalLabel">Screenshot Preview</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" alt="Screenshot" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="prevButton"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-secondary" id="nextButton">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('night-mode');
+            if (document.body.classList.contains('night-mode')) {
+                toggleButton.textContent = 'Switch to Day Theme';
+            } else {
+                toggleButton.textContent = 'Switch to Night Theme';
+            }
+        });
+
+        const images = document.querySelectorAll('.screenshot');
+        let currentIndex = 0;
+
+        images.forEach((img, index) => {
+            img.addEventListener('click', function() {
+                currentIndex = index;
+                updateModalImage();
+            });
+        });
+
+        document.getElementById('nextButton').addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateModalImage();
+        });
+
+        document.getElementById('prevButton').addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateModalImage();
+        });
+
+        function updateModalImage() {
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = images[currentIndex].src;
+        }
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if ($('#screenshotModal').hasClass('show')) {
+                if (event.key === 'ArrowRight') {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    updateModalImage();
+                } else if (event.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    updateModalImage();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

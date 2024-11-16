@@ -1,0 +1,90 @@
+/* Default (Day) Theme */
+body {
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background 0.5s, color 0.5s;
+}
+
+.night-mode {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    color: #f5f7fa;
+}
+
+.container {
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: background 0.5s;
+}
+
+.screenshot-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0;
+}
+
+.screenshot-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.screenshot {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+}
+
+.screenshot:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+}
+
+.screenshot-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    border: none;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #fad0c4, #ff9a9e);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+    border: none;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #fbc2eb, #a18cd1);
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+}
