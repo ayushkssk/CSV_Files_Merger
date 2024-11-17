@@ -74,96 +74,8 @@
         <footer class="mt-5 text-center">
             <p>Developed by Ayush</p>
             <button id="theme-toggle" class="btn btn-secondary">Switch to Night Theme</button>
+            <a href="{{ url_for('documentation') }}" class="btn btn-info">View Documentation</a>
         </footer>
-    </div>
-
-    <!-- Documentation Section -->
-    <div class="container mt-5">
-        <h1>CSV Merger Project Documentation</h1>
-        <h2>Overview</h2>
-        <p>The CSV Merger is a web application that allows users to upload two CSV files, merge them based on specific columns, and download the result as an Excel file. The application features a user-friendly interface with a day/night theme toggle and image previews.</p>
-        
-        <h2>Features</h2>
-        <ul>
-            <li>Upload and merge two CSV files.</li>
-            <li>Download the merged result as an Excel file.</li>
-            <li>Day/Night theme toggle.</li>
-            <li>Image previews with keyboard navigation.</li>
-        </ul>
-
-        <h2>Technologies Used</h2>
-        <ul>
-            <li>HTML, CSS, JavaScript</li>
-            <li>Bootstrap for styling</li>
-            <li>Font Awesome for icons</li>
-            <li>Python (Flask) for backend processing</li>
-            <li>Netlify for deployment</li>
-        </ul>
-
-        <h2>Setup and Installation</h2>
-        <h3>Prerequisites</h3>
-        <ul>
-            <li>Python 3.x</li>
-            <li>Git</li>
-            <li>A GitHub account</li>
-        </ul>
-
-        <h3>Installation Steps</h3>
-        <ol>
-            <li>Clone the Repository
-                <pre><code>git clone https://github.com/yourusername/csv-merger.git
-cd csv-merger</code></pre>
-            </li>
-            <li>Set Up a Virtual Environment
-                <pre><code>python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`</code></pre>
-            </li>
-            <li>Install Dependencies
-                <pre><code>pip install -r requirements.txt</code></pre>
-            </li>
-            <li>Run the Application
-                <pre><code>flask run</code></pre>
-            </li>
-            <li>Access the Application
-                <p>Open your browser and go to <a href="http://localhost:5000">http://localhost:5000</a>.</p>
-            </li>
-        </ol>
-
-        <h2>Deployment</h2>
-        <h3>Deploying on Netlify</h3>
-        <ol>
-            <li>Push Your Code to GitHub</li>
-            <li>Sign Up for Netlify</li>
-            <li>Create a New Site</li>
-            <li>Connect to GitHub</li>
-            <li>Select Your Repository</li>
-            <li>Configure Build Settings</li>
-            <li>Deploy</li>
-            <li>Access Your Live Site</li>
-        </ol>
-
-        <h2>Usage</h2>
-        <ol>
-            <li>Upload CSV Files</li>
-            <li>Merge and Download</li>
-            <li>Theme Toggle</li>
-            <li>Image Previews</li>
-        </ol>
-
-        <h2>Contributing</h2>
-        <ol>
-            <li>Fork the repository.</li>
-            <li>Create a new branch (`git checkout -b feature-branch`).</li>
-            <li>Make your changes and commit them (`git commit -m 'Add new feature'`).</li>
-            <li>Push to the branch (`git push origin feature-branch`).</li>
-            <li>Open a pull request.</li>
-        </ol>
-
-        <h2>License</h2>
-        <p>This project is licensed under the MIT License.</p>
-
-        <h2>Contact</h2>
-        <p>For questions or support, please contact [your-email@example.com].</p>
     </div>
 
     <!-- Single Modal for Image Previews -->
@@ -194,6 +106,9 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate`</code></pre>
         const toggleButton = document.getElementById('theme-toggle');
         toggleButton.addEventListener('click', () => {
             document.body.classList.toggle('night-mode');
+            document.querySelector('.container').classList.toggle('night-mode');
+            document.querySelector('footer').classList.toggle('night-mode');
+            
             if (document.body.classList.contains('night-mode')) {
                 toggleButton.textContent = 'Switch to Day Theme';
             } else {

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Merger Documentation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>CSV Merger Project Documentation</h1>
+        
+        <section id="overview" class="mt-4">
+            <h2>Overview</h2>
+            <p>This project is a CSV Merger application that allows users to merge multiple CSV files into a single file. It is built using Flask and provides a simple web interface for users to upload and merge files. The application is designed to handle large datasets efficiently and provides a seamless experience for users needing to consolidate data from various sources.</p>
+        </section>
+
+        <section id="how-it-works" class="mt-4">
+            <h2>How It Works</h2>
+            <p>The CSV Merger web application operates through a straightforward process:</p>
+            <ol>
+                <li>Users access the web interface and are prompted to upload multiple CSV files.</li>
+                <li>Once the files are uploaded, the application reads the contents of each CSV file.</li>
+                <li>The application then merges the data from all uploaded files into a single CSV file. This involves combining rows from each file, ensuring that the headers are consistent.</li>
+                <li>After merging, the application provides a download link for the user to obtain the consolidated CSV file.</li>
+            </ol>
+        </section>
+
+        <section id="installation" class="mt-4">
+            <h2>Installation</h2>
+            <ol>
+                <li>Clone the repository: <code>git clone https://github.com/yourusername/CSV_Files_Merger.git</code></li>
+                <li>Navigate to the project directory: <code>cd CSV_Files_Merger</code></li>
+                <li>Install the required packages: <code>pip install -r requirements.txt</code></li>
+            </ol>
+        </section>
+
+        <section id="usage" class="mt-4">
+            <h2>Usage</h2>
+            <ol>
+                <li>Start the Flask server: <code>python app.py</code></li>
+                <li>Open your web browser and go to <code>http://localhost:5001</code></li>
+                <li>Upload the CSV files you want to merge and click the "Merge" button.</li>
+            </ol>
+        </section>
+
+        <section id="features" class="mt-4">
+            <h2>Features</h2>
+            <ul>
+                <li>Merge multiple CSV files into one.</li>
+                <li>Download the merged CSV file.</li>
+                <li>Simple and intuitive web interface.</li>
+            </ul>
+        </section>
+
+        <section id="contributing" class="mt-4">
+            <h2>Contributing</h2>
+            <p>Contributions are welcome! Please fork the repository and submit a pull request with your changes.</p>
+        </section>
+
+        <section id="license" class="mt-4">
+            <h2>License</h2>
+            <p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for more details.</p>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
